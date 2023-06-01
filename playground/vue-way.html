@@ -23,17 +23,28 @@
       });
     */
 
-    Object.defineProperty(viewModel, "str", {
-      // 속성에 접근했을 때 정의
-      get: function () {
-        console.log("접근");
-      },
-      // 속성에 할당했을 때 정의
-      set: function (newValue) {
-        console.log("할당", newValue);
-        app.innerHTML = newValue;
+    (function () {
+      function init() {
+        Object.defineProperty(viewModel, "str", {
+          // 속성에 접근했을 때 정의
+          get: function () {
+            console.log("접근");
+          },
+          // 속성에 할당했을 때 정의
+          set: function (newValue) {
+            console.log("할당", newValue);
+            render(newValue);
+          }
+        });
       }
-    });
+
+      function render(value) {
+        app.innerHTML = value;
+
+      }
+
+      init();
+    })();
 
   </script>
 </body>
