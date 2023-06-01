@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+
+  </div>
+  <script>
+    var app = document.querySelector("#app");
+    var viewModel = {};
+
+    /**
+      // 정적 메서드는 객체에 새로운 속성을 직접 정의하거나 이미 존재하는 속성을 수정한 후, 해당 객체를 반환
+      Object.defineProperty("대상객체", "대상객체속성", {
+        // 정의할 내용
+      });
+    */
+
+    Object.defineProperty(viewModel, "str", {
+      // 속성에 접근했을 때 정의
+      get: function () {
+        console.log("접근");
+      },
+      // 속성에 할당했을 때 정의
+      set: function (newValue) {
+        console.log("할당", newValue);
+        app.innerHTML = newValue;
+      }
+    });
+
+  </script>
+</body>
+
+</html>
